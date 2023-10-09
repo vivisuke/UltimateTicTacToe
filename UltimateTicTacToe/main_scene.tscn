@@ -113,14 +113,14 @@ layout_mode = 0
 offset_right = 500.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 30
-text = "Super Tic-Tac-Toe"
+text = "Ultimate Tic-Tac-Toe"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VerLabel" type="Label" parent="TitleBar"]
 layout_mode = 0
-offset_left = 387.0
-offset_right = 500.0
+offset_left = 410.0
+offset_right = 486.0
 offset_bottom = 42.0
 text = "ver 0.007"
 vertical_alignment = 2
