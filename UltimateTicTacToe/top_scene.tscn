@@ -1,15 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://0exbauaimj6w"]
+[gd_scene load_steps=19 format=3 uid="uid://0exbauaimj6w"]
 
 [ext_resource type="FontFile" uid="uid://4jq07wtblejg" path="res://fonts/Hokjesgeest-PDGB.ttf" id="1_u6mje"]
 [ext_resource type="Texture2D" uid="uid://cycoj8n6i48gt" path="res://images/baby.png" id="2_ucpkx"]
 [ext_resource type="Texture2D" uid="uid://bc2x5mmihnnoq" path="res://images/youjo.png" id="3_0p426"]
 [ext_resource type="Texture2D" uid="uid://ck1j70mjl7gbq" path="res://images/furyo.png" id="4_m4fhy"]
+[ext_resource type="Texture2D" uid="uid://ckth31takpo56" path="res://images/youjo-shadow.png" id="4_rb7ie"]
 [ext_resource type="Texture2D" uid="uid://ci140rmp8vnyy" path="res://images/otonosama.png" id="5_gcbck"]
+[ext_resource type="Texture2D" uid="uid://bhlvkpw44ghkw" path="res://images/furyo-shadow.png" id="6_1hufm"]
 [ext_resource type="Texture2D" uid="uid://c1rnyd0t1q1yj" path="res://images/himesama.png" id="6_lxat2"]
 [ext_resource type="Texture2D" uid="uid://ltsyc7n3sy8q" path="res://images/napoleon.png" id="7_5lse0"]
 [ext_resource type="Texture2D" uid="uid://c6bu428ufkc22" path="res://images/youkihi.png" id="8_6aeln"]
+[ext_resource type="Texture2D" uid="uid://bh6ohylnpyigs" path="res://images/otonosama-shadow.png" id="8_8hpcp"]
 [ext_resource type="Texture2D" uid="uid://fyr3lkiyuquh" path="res://images/einstein.png" id="9_hngi6"]
+[ext_resource type="Texture2D" uid="uid://wof68l00ihjk" path="res://images/himesama-shadow.png" id="10_a4sdx"]
 [ext_resource type="Texture2D" uid="uid://5bskrw8ekl5f" path="res://images/akutagawa.png" id="10_egdgs"]
+[ext_resource type="Texture2D" uid="uid://dvmmsfjm0fkqv" path="res://images/napoleon-shadow.png" id="12_0w53q"]
+[ext_resource type="Texture2D" uid="uid://crfdylxmxpnnn" path="res://images/einstein-shadow.png" id="15_jgpj1"]
+[ext_resource type="Texture2D" uid="uid://cj360jxplagsv" path="res://images/akutagawa-shadow.png" id="17_cb8o2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae8hs"]
 bg_color = Color(1, 1, 1, 0)
@@ -39,9 +46,8 @@ horizontal_alignment = 1
 
 [node name="HBC1" type="HBoxContainer" parent="."]
 offset_top = 240.0
-offset_right = 1000.0
-offset_bottom = 540.0
-scale = Vector2(0.5, 0.5)
+offset_right = 500.0
+offset_bottom = 390.0
 alignment = 1
 
 [node name="TextureButton1" type="TextureButton" parent="HBC1"]
@@ -50,46 +56,60 @@ texture_normal = ExtResource("2_ucpkx")
 
 [node name="TextureButton2" type="TextureButton" parent="HBC1"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("3_0p426")
+texture_disabled = ExtResource("4_rb7ie")
 
 [node name="TextureButton3" type="TextureButton" parent="HBC1"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("4_m4fhy")
+texture_disabled = ExtResource("6_1hufm")
 
 [node name="HBC2" type="HBoxContainer" parent="."]
 offset_top = 430.0
-offset_right = 1000.0
-offset_bottom = 730.0
-scale = Vector2(0.5, 0.5)
+offset_right = 500.0
+offset_bottom = 580.0
 alignment = 1
 
 [node name="TextureButton1" type="TextureButton" parent="HBC2"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("5_gcbck")
+texture_disabled = ExtResource("8_8hpcp")
 
 [node name="TextureButton2" type="TextureButton" parent="HBC2"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("6_lxat2")
+texture_disabled = ExtResource("10_a4sdx")
 
 [node name="TextureButton3" type="TextureButton" parent="HBC2"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("7_5lse0")
+texture_disabled = ExtResource("12_0w53q")
 
 [node name="HBC3" type="HBoxContainer" parent="."]
 offset_top = 610.0
-offset_right = 1000.0
-offset_bottom = 910.0
-scale = Vector2(0.5, 0.5)
+offset_right = 500.0
+offset_bottom = 760.0
 alignment = 1
 
 [node name="TextureButton1" type="TextureButton" parent="HBC3"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("8_6aeln")
+texture_disabled = ExtResource("4_rb7ie")
 
 [node name="TextureButton2" type="TextureButton" parent="HBC3"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("9_hngi6")
+texture_disabled = ExtResource("15_jgpj1")
 
 [node name="TextureButton3" type="TextureButton" parent="HBC3"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("10_egdgs")
+texture_disabled = ExtResource("17_cb8o2")
