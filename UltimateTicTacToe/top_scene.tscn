@@ -53,9 +53,9 @@ toggle_mode = true
 text = "English"
 
 [node name="TitleLabel" type="Label" parent="."]
-offset_top = 59.0
+offset_top = 80.0
 offset_right = 500.0
-offset_bottom = 111.0
+offset_bottom = 172.0
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_outline_size = 4
@@ -74,82 +74,108 @@ offset_bottom = 118.0
 text = "ver 0.100"
 horizontal_alignment = 1
 
+[node name="HBCDiff" type="HBoxContainer" parent="."]
+offset_top = 230.0
+offset_right = 500.0
+offset_bottom = 270.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EasyButton" type="Button" parent="HBCDiff"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Easy"
+
+[node name="NormalButton" type="Button" parent="HBCDiff"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Easy"
+
+[node name="HardButton" type="Button" parent="HBCDiff"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Easy"
+
 [node name="MessLabel" type="Label" parent="."]
 offset_left = 21.0
-offset_top = 220.0
+offset_top = 300.0
 offset_right = 479.0
-offset_bottom = 256.0
+offset_bottom = 336.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "対戦相手をタップしてください。"
 
 [node name="HBC1" type="HBoxContainer" parent="."]
-offset_top = 300.0
+offset_top = 350.0
 offset_right = 500.0
-offset_bottom = 450.0
+offset_bottom = 500.0
 alignment = 1
 
-[node name="TextureButton1" type="TextureButton" parent="HBC1"]
+[node name="TextureButton11" type="TextureButton" parent="HBC1"]
 layout_mode = 2
 texture_normal = ExtResource("2_ucpkx")
 texture_pressed = ExtResource("4_tkeoq")
 
-[node name="TextureButton2" type="TextureButton" parent="HBC1"]
+[node name="TextureButton12" type="TextureButton" parent="HBC1"]
 layout_mode = 2
-disabled = true
 texture_normal = ExtResource("3_0p426")
 texture_disabled = ExtResource("4_rb7ie")
 
-[node name="TextureButton3" type="TextureButton" parent="HBC1"]
+[node name="TextureButton13" type="TextureButton" parent="HBC1"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("4_m4fhy")
 texture_disabled = ExtResource("6_1hufm")
 
 [node name="HBC2" type="HBoxContainer" parent="."]
-offset_top = 490.0
+offset_top = 540.0
 offset_right = 500.0
-offset_bottom = 640.0
+offset_bottom = 690.0
 alignment = 1
 
-[node name="TextureButton1" type="TextureButton" parent="HBC2"]
+[node name="TextureButton21" type="TextureButton" parent="HBC2"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("5_gcbck")
 texture_disabled = ExtResource("8_8hpcp")
 
-[node name="TextureButton2" type="TextureButton" parent="HBC2"]
+[node name="TextureButton22" type="TextureButton" parent="HBC2"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("6_lxat2")
 texture_disabled = ExtResource("10_a4sdx")
 
-[node name="TextureButton3" type="TextureButton" parent="HBC2"]
+[node name="TextureButton23" type="TextureButton" parent="HBC2"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("7_5lse0")
 texture_disabled = ExtResource("12_0w53q")
 
 [node name="HBC3" type="HBoxContainer" parent="."]
-offset_top = 670.0
+offset_top = 720.0
 offset_right = 500.0
-offset_bottom = 820.0
+offset_bottom = 870.0
 alignment = 1
 
-[node name="TextureButton1" type="TextureButton" parent="HBC3"]
+[node name="TextureButton31" type="TextureButton" parent="HBC3"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("8_6aeln")
 texture_disabled = ExtResource("4_rb7ie")
 
-[node name="TextureButton2" type="TextureButton" parent="HBC3"]
+[node name="TextureButton32" type="TextureButton" parent="HBC3"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("9_hngi6")
 texture_disabled = ExtResource("15_jgpj1")
 
-[node name="TextureButton3" type="TextureButton" parent="HBC3"]
+[node name="TextureButton33" type="TextureButton" parent="HBC3"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("10_egdgs")
 texture_disabled = ExtResource("17_cb8o2")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+
+[connection signal="pressed" from="HBC1/TextureButton11" to="." method="_on_texture_button_11_pressed"]
+[connection signal="button_down" from="HBC1/TextureButton12" to="." method="_on_texture_button_12_button_down"]
