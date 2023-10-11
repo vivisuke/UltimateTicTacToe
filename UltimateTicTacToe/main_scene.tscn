@@ -1,12 +1,14 @@
-[gd_scene load_steps=49 format=3 uid="uid://ddnaldrnxjkkx"]
+[gd_scene load_steps=51 format=3 uid="uid://ddnaldrnxjkkx"]
 
 [ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_dsv07"]
 [ext_resource type="Script" path="res://scripts/TitleBar.gd" id="1_l3eue"]
+[ext_resource type="Texture2D" uid="uid://bkvk8ja26qnbf" path="res://images/leftward_white.png" id="3_dm6l3"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="3_fq3ta"]
 [ext_resource type="Texture2D" uid="uid://bbntl48u5ftju" path="res://images/play_arrow_white_32.png" id="3_h6act"]
 [ext_resource type="Texture2D" uid="uid://8psfxlmyf6od" path="res://images/white153x153.png" id="3_twduk"]
 [ext_resource type="Texture2D" uid="uid://cy7nug2scrs6c" path="res://images/autorenew_white_32.png" id="4_7mrw0"]
 [ext_resource type="Texture2D" uid="uid://bke4ga7k7lq6i" path="res://images/pink.png" id="4_li4sm"]
+[ext_resource type="Texture2D" uid="uid://c8f3w71rjyxfa" path="res://images/leftward_black.png" id="4_rqdtp"]
 [ext_resource type="Texture2D" uid="uid://ch7sr266t28fn" path="res://images/translate_black.png" id="5_8egxo"]
 [ext_resource type="Texture2D" uid="uid://c21l38manmh06" path="res://images/circle_black.png" id="5_u0aoc"]
 [ext_resource type="Texture2D" uid="uid://os2kymwxpo7f" path="res://images/close_black.png" id="6_x73yt"]
@@ -106,6 +108,13 @@ offset_right = 500.0
 offset_bottom = 50.0
 color = Color(0.180392, 0.309804, 0.309804, 1)
 script = ExtResource("1_l3eue")
+
+[node name="BackButton" type="TextureButton" parent="TitleBar"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+texture_normal = ExtResource("3_dm6l3")
+texture_pressed = ExtResource("4_rqdtp")
 
 [node name="Label" type="Label" parent="TitleBar"]
 layout_mode = 0
@@ -456,6 +465,7 @@ stream = ExtResource("30_w5sgk")
 position = Vector2(250, 450)
 stream = ExtResource("31_7ma7b")
 
+[connection signal="pressed" from="TitleBar/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="StartStopButton" to="." method="_on_start_stop_button_pressed"]
 [connection signal="pressed" from="InitButton" to="." method="_on_init_button_pressed"]
 [connection signal="item_selected" from="LangRect/OptionButton" to="." method="_on_option_button_item_selected"]
