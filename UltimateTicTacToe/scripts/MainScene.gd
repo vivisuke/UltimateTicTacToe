@@ -30,7 +30,7 @@ var BOARD_ORG_X
 var BOARD_ORG_Y
 var BOARD_ORG
 
-var g = Global
+#var g = Global
 var rng = RandomNumberGenerator.new()
 var AI_thinking = false
 var waiting = 0;				# ウェイト中カウンタ

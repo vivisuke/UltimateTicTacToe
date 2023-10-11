@@ -5,6 +5,11 @@ const disabled_mess = [
 	"余と対戦したいとは無礼者め", "もっと修行して出なおしてきてね", "余の辞書にはまだ「対戦」という文字は無い",
 	"もっと実績をつんできてね", "神は対戦は早過ぎると言っている", "まだまだだな",
 ]
+const enabled_mess = [
+	"　　ばぶばぶばぶー？　　", "わたしと対戦したいの？", "俺と対戦するとはいい度胸だ",
+	"余と対戦したいと申すのか？", "わたしが強すぎても後悔しない？", "余の辞書に「敗北」の文字は無いがよいか？",
+	"わたしが強すぎても後悔しない？", "　　神は対戦を認めたのか？　　", "相手を全員倒してきたのか？",
+]
 var pressed_oppix = -1
 var opp_list = []
 
@@ -39,13 +44,13 @@ func _input(event):
 		if event.is_pressed():
 			pressed_oppix = ix
 		else:
-			if ix == pressed_oppix:
+			if ix == pressed_oppix && g.opp_disabled[ix]:
 				show_disabled_mess(ix)
 			pressed_oppix = -1
 
 func show_disabled_mess(ix):
 	$AcceptDialog.dialog_text = disabled_mess[ix]
-	$AcceptDialog.connect("confirmed", on_confirmed)
+	#$AcceptDialog.connect("confirmed", on_confirmed)
 	$AcceptDialog.show()
 	var sz = $AcceptDialog.size
 	$AcceptDialog.position = Vector2(250 - sz.x/2, 400)
@@ -63,6 +68,7 @@ func _on_texture_button_11_pressed():
 
 func on_confirmed():
 	print("on_confirmed()")
+	get_tree().change_scene_to_file("res://main_scene.tscn")
 
 
 func _on_texture_button_12_button_down():

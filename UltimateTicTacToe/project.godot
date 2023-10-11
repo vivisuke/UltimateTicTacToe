@@ -17,7 +17,7 @@ config/icon="res://images/tic-tac-toe.png"
 
 [autoload]
 
-Global="*res://global.tscn"
+g="*res://global.tscn"
 
 [display]
 
