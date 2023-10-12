@@ -93,3 +93,13 @@ func _on_texture_button_32_pressed():
 	on_opp_button_pressed(7)
 func _on_texture_button_33_pressed():
 	on_opp_button_pressed(8)
+
+
+func _on_jp_button_toggled(button_pressed):
+	$HBCLang/EnButton.set_pressed_no_signal(!button_pressed)
+	pass # Replace with function body.
+
+
+func _on_en_button_toggled(button_pressed):
+	$HBCLang/JpButton.set_pressed_no_signal(!button_pressed)
+	pass # Replace with function body.
