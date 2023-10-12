@@ -26,7 +26,7 @@
 0020 ◎ C 10/12 10/12 0.100│ToDo│g.opp_disabled[] に従ってボタン有効・無効に
 0020 ● C 10/12            │ToDo│「Easy」「Normal」「Hard」：排他的に
 0020 ◎ C 10/12 10/12 0.100│ToDo│「日本語」「English」：排他的に
-0020 ● C 10/12            │ToDo│
+0020 ◎ C 10/12 10/12 0.100│ToDo│Global に「日本語」「English」設定追加
 0020 ● C 10/12            │ToDo│
 0020 ● C 10/12            │ToDo│
 0020 ● C 10/12            │ToDo│

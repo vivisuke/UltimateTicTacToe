@@ -14,6 +14,8 @@ var pressed_oppix = -1
 var opp_list = []
 
 func _ready():
+	$HBCLang/JpButton.set_pressed_no_signal(g.lang_jp)
+	$HBCLang/EnButton.set_pressed_no_signal(!g.lang_jp)
 	build_opp_lst()
 	for ix in range(opp_list.size()):
 		opp_list[ix].disabled = g.opp_disabled[ix]

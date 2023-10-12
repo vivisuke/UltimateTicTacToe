@@ -20,6 +20,8 @@ enum {
 	HUMAN = 0, AI_RANDOM, AI_DEPTH_1, AI_DEPTH_2, AI_DEPTH_3, AI_DEPTH_4, AI_DEPTH_5, 
 	JA = 0, EN,			# 日本語/英語
 }
+
+var lang_jp = false
 var opp_disabled = [
 	false, false, false, false, false, false, false, false, false, 
 ]
