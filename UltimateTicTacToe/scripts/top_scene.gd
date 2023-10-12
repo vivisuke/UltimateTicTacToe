@@ -15,6 +15,8 @@ var opp_list = []
 
 func _ready():
 	build_opp_lst()
+	for ix in range(opp_list.size()):
+		opp_list[ix].disabled = g.opp_disabled[ix]
 	pass # Replace with function body.
 func build_opp_lst():
 	opp_list.push_back($HBC1/TextureButton11)
@@ -55,16 +57,6 @@ func show_disabled_mess(ix):
 	var sz = $AcceptDialog.size
 	$AcceptDialog.position = Vector2(250 - sz.x/2, 400)
 	pass
-func _on_texture_button_11_pressed():
-	#$ConfirmationDialog.title = ""
-	$ConfirmationDialog.dialog_text = "ばぶばぶー"
-	$ConfirmationDialog.ok_button_text = "Yes"
-	$ConfirmationDialog.connect("confirmed", on_confirmed)
-	$ConfirmationDialog.show()
-	var sz = $ConfirmationDialog.size
-	$ConfirmationDialog.position = Vector2(250 - sz.x/2, 400)
-
-	pass # Replace with function body.
 
 func on_confirmed():
 	print("on_confirmed()")
@@ -74,3 +66,30 @@ func on_confirmed():
 func _on_texture_button_12_button_down():
 	print("button_down()")
 	pass # Replace with function body.
+func on_opp_button_pressed(ix):
+	#$ConfirmationDialog.title = ""
+	$ConfirmationDialog.dialog_text = enabled_mess[ix]
+	$ConfirmationDialog.ok_button_text = "Yes"
+	$ConfirmationDialog.connect("confirmed", on_confirmed)
+	$ConfirmationDialog.show()
+	var sz = $ConfirmationDialog.size
+	$ConfirmationDialog.position = Vector2(250 - sz.x/2, 400)
+	pass # Replace with function body.
+func _on_texture_button_11_pressed():
+	on_opp_button_pressed(0)
+func _on_texture_button_12_pressed():
+	on_opp_button_pressed(1)
+func _on_texture_button_13_pressed():
+	on_opp_button_pressed(2)
+func _on_texture_button_21_pressed():
+	on_opp_button_pressed(3)
+func _on_texture_button_22_pressed():
+	on_opp_button_pressed(4)
+func _on_texture_button_23_pressed():
+	on_opp_button_pressed(5)
+func _on_texture_button_31_pressed():
+	on_opp_button_pressed(6)
+func _on_texture_button_32_pressed():
+	on_opp_button_pressed(7)
+func _on_texture_button_33_pressed():
+	on_opp_button_pressed(8)

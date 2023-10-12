@@ -21,7 +21,7 @@ enum {
 	JA = 0, EN,			# 日本語/英語
 }
 var opp_disabled = [
-	false, true, true, true, true, true, true, true, true, 
+	false, false, false, false, false, false, false, false, false, 
 ]
 
 class HistItem:

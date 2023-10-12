@@ -181,4 +181,11 @@ texture_disabled = ExtResource("17_cb8o2")
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 
 [connection signal="pressed" from="HBC1/TextureButton11" to="." method="_on_texture_button_11_pressed"]
-[connection signal="button_down" from="HBC1/TextureButton12" to="." method="_on_texture_button_12_button_down"]
+[connection signal="pressed" from="HBC1/TextureButton12" to="." method="_on_texture_button_12_pressed"]
+[connection signal="pressed" from="HBC1/TextureButton13" to="." method="_on_texture_button_13_pressed"]
+[connection signal="pressed" from="HBC2/TextureButton21" to="." method="_on_texture_button_21_pressed"]
+[connection signal="pressed" from="HBC2/TextureButton22" to="." method="_on_texture_button_22_pressed"]
+[connection signal="pressed" from="HBC2/TextureButton23" to="." method="_on_texture_button_23_pressed"]
+[connection signal="pressed" from="HBC3/TextureButton31" to="." method="_on_texture_button_31_pressed"]
+[connection signal="pressed" from="HBC3/TextureButton32" to="." method="_on_texture_button_32_pressed"]
+[connection signal="pressed" from="HBC3/TextureButton33" to="." method="_on_texture_button_33_pressed"]
