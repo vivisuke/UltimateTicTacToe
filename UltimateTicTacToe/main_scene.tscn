@@ -126,6 +126,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VerLabel" type="Label" parent="TitleBar"]
+visible = false
 layout_mode = 0
 offset_left = 410.0
 offset_right = 486.0
@@ -178,6 +179,7 @@ text = "Init Board
 icon = ExtResource("4_7mrw0")
 
 [node name="LangRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 330.0
 offset_top = 65.0
 offset_right = 480.0
