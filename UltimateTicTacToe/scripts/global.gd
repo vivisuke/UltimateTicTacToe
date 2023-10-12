@@ -23,7 +23,7 @@ enum {
 
 var lang_jp = false
 var opp_disabled = [
-	false, false, false, false, false, false, false, false, false, 
+	false, true, true, true, true, true, true, true, true, 
 ]
 
 class HistItem:

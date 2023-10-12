@@ -5,10 +5,20 @@ const disabled_mess = [
 	"余と対戦したいとは無礼者め", "もっと修行して出なおしてきてね", "余の辞書にはまだ「対戦」という文字は無い",
 	"もっと実績をつんできてね", "神は対戦は早過ぎると言っている", "まだまだだな",
 ]
+const disabled_mess_en = [
+	"goo goo ga ga", "Please come back after becoming stronger.", "It will be 100 years before you fight me.",
+	"You are a rude person who wants to play against me.", "Please train more and come out again.", "My dictionary doesn't have the word 'battle' yet.",
+	"Please accumulate more achievements.", "God says it's too early to fight", "There's still a long way to go",
+]
 const enabled_mess = [
-	"　　ばぶばぶばぶー？　　", "わたしと対戦したいの？", "俺と対戦するとはいい度胸だ",
+	"    ばぶばぶばぶー？    ", "わたしと対戦したいの？", "俺と対戦するとはいい度胸だ",
 	"余と対戦したいと申すのか？", "わたしが強すぎても後悔しない？", "余の辞書に「敗北」の文字は無いがよいか？",
 	"わたしが強すぎても後悔しない？", "　　神は対戦を認めたのか？　　", "相手を全員倒してきたのか？",
+]
+const enabled_mess_en = [
+	"    goo goo ga ga ?    ", "do you want to play against me ?", "You have the nerve to play against me.",
+	"Are you saying you want to play against me ?", "Even if I'm too strong, won't you regret it ?", "Is it okay if I don't have the word 'defeat' in my dictionary ?",
+	"Even if I'm too strong, won't you regret it ?", "Did God approve of the match ?", "Have you defeated all your opponents ?",
 ]
 var pressed_oppix = -1
 var opp_list = []
@@ -19,6 +29,7 @@ func _ready():
 	build_opp_lst()
 	for ix in range(opp_list.size()):
 		opp_list[ix].disabled = g.opp_disabled[ix]
+	update_message()
 	pass # Replace with function body.
 func build_opp_lst():
 	opp_list.push_back($HBC1/TextureButton11)
@@ -36,6 +47,11 @@ func pos_to_oppix(pos):
 		if rct.has_point(pos):
 			return ix
 	return -1
+func update_message():
+	if g.lang_jp:
+		$MessLabel.text = "一覧から対戦相手をタップしてください。"
+	else:
+		$MessLabel.text = "Please tap your opponent from the list."
 func _process(delta):
 	pass
 
@@ -53,7 +69,7 @@ func _input(event):
 			pressed_oppix = -1
 
 func show_disabled_mess(ix):
-	$AcceptDialog.dialog_text = disabled_mess[ix]
+	$AcceptDialog.dialog_text = disabled_mess[ix] if g.lang_jp else disabled_mess_en[ix]
 	#$AcceptDialog.connect("confirmed", on_confirmed)
 	$AcceptDialog.show()
 	var sz = $AcceptDialog.size
@@ -70,7 +86,7 @@ func _on_texture_button_12_button_down():
 	pass # Replace with function body.
 func on_opp_button_pressed(ix):
 	#$ConfirmationDialog.title = ""
-	$ConfirmationDialog.dialog_text = enabled_mess[ix]
+	$ConfirmationDialog.dialog_text = enabled_mess[ix] if g.lang_jp else enabled_mess_en[ix]
 	$ConfirmationDialog.ok_button_text = "Yes"
 	$ConfirmationDialog.connect("confirmed", on_confirmed)
 	$ConfirmationDialog.show()
@@ -99,9 +115,11 @@ func _on_texture_button_33_pressed():
 
 func _on_jp_button_toggled(button_pressed):
 	$HBCLang/EnButton.set_pressed_no_signal(!button_pressed)
-	pass # Replace with function body.
+	g.lang_jp = button_pressed
+	update_message()
 
 
 func _on_en_button_toggled(button_pressed):
 	$HBCLang/JpButton.set_pressed_no_signal(!button_pressed)
-	pass # Replace with function body.
+	g.lang_jp = !button_pressed
+	update_message()
