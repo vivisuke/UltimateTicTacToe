@@ -30,6 +30,7 @@ func _ready():
 	for ix in range(opp_list.size()):
 		opp_list[ix].disabled = g.opp_disabled[ix]
 	update_message()
+	update_diff_mode()
 	pass # Replace with function body.
 func build_opp_lst():
 	opp_list.push_back($HBC1/TextureButton11)
@@ -47,6 +48,10 @@ func pos_to_oppix(pos):
 		if rct.has_point(pos):
 			return ix
 	return -1
+func update_diff_mode():
+	$HBCDiff/EasyButton.set_pressed_no_signal(g.diff_mode == g.EASY_MODE)
+	$HBCDiff/NormalButton.set_pressed_no_signal(g.diff_mode == g.NORMAL_MODE)
+	$HBCDiff/HardButton.set_pressed_no_signal(g.diff_mode == g.HARD_MODE)
 func update_message():
 	if g.lang_jp:
 		$MessLabel.text = "一覧から対戦相手をタップしてください。"
@@ -123,3 +128,23 @@ func _on_en_button_toggled(button_pressed):
 	$HBCLang/JpButton.set_pressed_no_signal(!button_pressed)
 	g.lang_jp = !button_pressed
 	update_message()
+
+func _on_easy_button_toggled(button_pressed):
+	if button_pressed:
+		g.diff_mode = g.EASY_MODE
+	update_diff_mode()
+	pass # Replace with function body.
+
+
+func _on_normal_button_toggled(button_pressed):
+	if button_pressed:
+		g.diff_mode = g.NORMAL_MODE
+	update_diff_mode()
+	pass # Replace with function body.
+
+
+func _on_hard_button_toggled(button_pressed):
+	if button_pressed:
+		g.diff_mode = g.HARD_MODE
+	update_diff_mode()
+	pass # Replace with function body.

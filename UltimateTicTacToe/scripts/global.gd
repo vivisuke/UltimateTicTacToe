@@ -19,9 +19,11 @@ enum {
 	TS_EMPTY = -1, TS_WHITE, TS_BLACK,		#	タイルセットID
 	HUMAN = 0, AI_RANDOM, AI_DEPTH_1, AI_DEPTH_2, AI_DEPTH_3, AI_DEPTH_4, AI_DEPTH_5, 
 	JA = 0, EN,			# 日本語/英語
+	EASY_MODE = 0, NORMAL_MODE, HARD_MODE,
 }
 
 var lang_jp = false
+var diff_mode = EASY_MODE
 var opp_disabled = [
 	false, true, true, true, true, true, true, true, true, 
 ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0exbauaimj6w"]
+[gd_scene load_steps=31 format=3 uid="uid://0exbauaimj6w"]
 
 [ext_resource type="Script" path="res://scripts/top_scene.gd" id="1_4emwm"]
 [ext_resource type="FontFile" uid="uid://4jq07wtblejg" path="res://fonts/Hokjesgeest-PDGB.ttf" id="1_u6mje"]
@@ -34,6 +34,21 @@ bg_color = Color(0.376471, 0.376471, 1, 1)
 bg_color = Color(1, 1, 1, 0)
 draw_center = false
 shadow_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4ss8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncuhi"]
+bg_color = Color(0.376471, 0.376471, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42jml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt1ej"]
+bg_color = Color(0.376471, 0.376471, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stsb6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b55q"]
+bg_color = Color(0.376471, 0.376471, 1, 1)
 
 [node name="TopScene" type="Node2D"]
 script = ExtResource("1_4emwm")
@@ -98,17 +113,26 @@ alignment = 1
 [node name="EasyButton" type="Button" parent="HBCDiff"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_t4ss8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ncuhi")
+toggle_mode = true
 text = "Easy"
 
 [node name="NormalButton" type="Button" parent="HBCDiff"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "Easy"
+theme_override_styles/normal = SubResource("StyleBoxFlat_42jml")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rt1ej")
+toggle_mode = true
+text = "Normal"
 
 [node name="HardButton" type="Button" parent="HBCDiff"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "Easy"
+theme_override_styles/normal = SubResource("StyleBoxFlat_stsb6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8b55q")
+toggle_mode = true
+text = "Hard"
 
 [node name="MessLabel" type="Label" parent="."]
 offset_left = 21.0
@@ -196,6 +220,9 @@ texture_disabled = ExtResource("17_cb8o2")
 
 [connection signal="toggled" from="HBCLang/JpButton" to="." method="_on_jp_button_toggled"]
 [connection signal="toggled" from="HBCLang/EnButton" to="." method="_on_en_button_toggled"]
+[connection signal="toggled" from="HBCDiff/EasyButton" to="." method="_on_easy_button_toggled"]
+[connection signal="toggled" from="HBCDiff/NormalButton" to="." method="_on_normal_button_toggled"]
+[connection signal="toggled" from="HBCDiff/HardButton" to="." method="_on_hard_button_toggled"]
 [connection signal="pressed" from="HBC1/TextureButton11" to="." method="_on_texture_button_11_pressed"]
 [connection signal="pressed" from="HBC1/TextureButton12" to="." method="_on_texture_button_12_pressed"]
 [connection signal="pressed" from="HBC1/TextureButton13" to="." method="_on_texture_button_13_pressed"]
