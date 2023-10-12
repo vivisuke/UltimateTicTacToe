@@ -24,6 +24,7 @@ var pressed_oppix = -1
 var opp_list = []
 
 func _ready():
+	g.load_settings()
 	build_opp_lst()
 	for ix in range(opp_list.size()):
 		opp_list[ix].disabled = g.opp_disabled[ix]
@@ -51,9 +52,9 @@ func update_lang_buttons():
 	$HBCLang/JpButton.set_pressed_no_signal(g.lang_jp)
 	$HBCLang/EnButton.set_pressed_no_signal(!g.lang_jp)
 func update_diff_mode():
-	$HBCDiff/EasyButton.set_pressed_no_signal(g.diff_mode == g.EASY_MODE)
-	$HBCDiff/NormalButton.set_pressed_no_signal(g.diff_mode == g.NORMAL_MODE)
-	$HBCDiff/HardButton.set_pressed_no_signal(g.diff_mode == g.HARD_MODE)
+	$HBCDiff/EasyButton.set_pressed_no_signal(g.game_mode == g.EASY_MODE)
+	$HBCDiff/NormalButton.set_pressed_no_signal(g.game_mode == g.NORMAL_MODE)
+	$HBCDiff/HardButton.set_pressed_no_signal(g.game_mode == g.HARD_MODE)
 func update_message():
 	if g.lang_jp:
 		$MessLabel.text = "一覧から対戦相手をタップしてください。"
@@ -124,31 +125,36 @@ func _on_jp_button_toggled(button_pressed):
 	if button_pressed:
 		#$HBCLang/EnButton.set_pressed_no_signal(!button_pressed)
 		g.lang_jp = button_pressed
+		g.save_settings()
 		update_message()
 	update_lang_buttons()
 func _on_en_button_toggled(button_pressed):
 	if button_pressed:
 		#$HBCLang/JpButton.set_pressed_no_signal(!button_pressed)
 		g.lang_jp = !button_pressed
+		g.save_settings()
 		update_message()
 	update_lang_buttons()
 
 func _on_easy_button_toggled(button_pressed):
 	if button_pressed:
-		g.diff_mode = g.EASY_MODE
+		g.game_mode = g.EASY_MODE
+		g.save_settings()
 	update_diff_mode()
 	pass # Replace with function body.
 
 
 func _on_normal_button_toggled(button_pressed):
 	if button_pressed:
-		g.diff_mode = g.NORMAL_MODE
+		g.game_mode = g.NORMAL_MODE
+		g.save_settings()
 	update_diff_mode()
 	pass # Replace with function body.
 
 
 func _on_hard_button_toggled(button_pressed):
 	if button_pressed:
-		g.diff_mode = g.HARD_MODE
+		g.game_mode = g.HARD_MODE
+		g.save_settings()
 	update_diff_mode()
 	pass # Replace with function body.

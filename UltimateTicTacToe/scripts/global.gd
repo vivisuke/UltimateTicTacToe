@@ -7,7 +7,7 @@ const NEXT_LOCAL_BOARD = 0
 #const BATSU = 0
 const WAIT = 6*3
 const GVAL = 100
-const SettingsFileName	= "user://KillerSudoku6_stgs.dat"
+const SettingsFileName	= "user://UltimateTicTacToe_stgs.dat"
 
 const g_pow_table = [	pow(3, 8), pow(3, 7), pow(3, 6),
 						pow(3, 5), pow(3, 4), pow(3, 3),
@@ -23,10 +23,11 @@ enum {
 }
 
 var lang_jp = false
-var diff_mode = EASY_MODE
+var game_mode = EASY_MODE
 var opp_disabled = [
 	false, true, true, true, true, true, true, true, true, 
 ]
+var stgs = {}		# 設定辞書
 
 class HistItem:
 	var m_x:int				# 着手位置
@@ -366,7 +367,6 @@ func _ready():
 	print("Global._ready()")
 	rng.randomize()		# Setups a time-based seed
 	#rng.seed = 0		# 固定乱数系列
-	load_lang()
 	bd = Board.new()
 	bd.m_rng = rng
 	bd.set_eval_table(g_eval_table)
@@ -413,14 +413,18 @@ func build_3x3_eval_table():
 		#print(g_eval_table[ix]);
 
 #
-func load_lang():
+func load_settings():
 	#var file = FileAccess.new()
 	if FileAccess.file_exists(SettingsFileName):		# 設定ファイル
 		var file = FileAccess.open(SettingsFileName, FileAccess.READ)
-		lang = file.get_var()
+		stgs = file.get_var()
 		file.close()
-func save_lang():
+		if stgs.has("lang_jp"): lang_jp = stgs["lang_jp"]
+		if stgs.has("game_mode"): game_mode = stgs["game_mode"]
+func save_settings():
 	#var file = File.new()
 	var file = FileAccess.open(SettingsFileName, FileAccess.WRITE)
-	file.store_var(lang)
+	stgs["lang_jp"] = lang_jp
+	stgs["game_mode"] = game_mode
+	file.store_var(stgs)
 	file.close()
