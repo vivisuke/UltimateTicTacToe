@@ -62,7 +62,7 @@ func _ready():
 	update_next_underline()
 	update_board_tilemaps()		# g.bd の状態から TileMap たちを設定
 	g.bd.print()
-	$LangRect/OptionButton.select(g.lang)
+	#$LangRect/OptionButton.select(g.lang)
 	$WhitePlayer/OptionButton.select(g.white_player)
 	$BlackPlayer/OptionButton.select(g.black_player)
 	#$MessLabel.text = "【Start Game】を押してください。"
@@ -71,7 +71,7 @@ func _ready():
 	pass
 func set_message(lst):
 	mess_lst = lst
-	$MessLabel.text = mess_lst[g.lang]
+	$MessLabel.text = mess_lst[0 if g.lang_jp else 1]
 func build_eval_labels():
 	for y in range(N_VERT):
 		for x in range(N_HORZ):
