@@ -64,7 +64,7 @@ func _input(event):
 		if event.is_pressed():
 			pressed_oppix = ix
 		else:
-			if ix == pressed_oppix && g.opp_disabled[ix]:
+			if ix >= 0 && ix == pressed_oppix && g.opp_disabled[ix]:
 				show_disabled_mess(ix)
 			pressed_oppix = -1
 
