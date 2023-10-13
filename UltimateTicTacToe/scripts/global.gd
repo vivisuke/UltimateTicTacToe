@@ -24,6 +24,7 @@ enum {
 
 var lang_jp = false
 var game_mode = EASY_MODE
+var free_match = false
 var opp_disabled = [
 	false, true, true, true, true, true, true, true, true, 
 ]

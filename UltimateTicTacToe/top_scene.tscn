@@ -134,6 +134,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8b55q")
 toggle_mode = true
 text = "Hard"
 
+[node name="FreeMatchButton" type="Button" parent="HBCDiff"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Free Match"
+
 [node name="MessLabel" type="Label" parent="."]
 offset_left = 21.0
 offset_top = 300.0
@@ -223,6 +228,7 @@ texture_disabled = ExtResource("17_cb8o2")
 [connection signal="toggled" from="HBCDiff/EasyButton" to="." method="_on_easy_button_toggled"]
 [connection signal="toggled" from="HBCDiff/NormalButton" to="." method="_on_normal_button_toggled"]
 [connection signal="toggled" from="HBCDiff/HardButton" to="." method="_on_hard_button_toggled"]
+[connection signal="pressed" from="HBCDiff/FreeMatchButton" to="." method="_on_free_match_button_pressed"]
 [connection signal="pressed" from="HBC1/TextureButton11" to="." method="_on_texture_button_11_pressed"]
 [connection signal="pressed" from="HBC1/TextureButton12" to="." method="_on_texture_button_12_pressed"]
 [connection signal="pressed" from="HBC1/TextureButton13" to="." method="_on_texture_button_13_pressed"]

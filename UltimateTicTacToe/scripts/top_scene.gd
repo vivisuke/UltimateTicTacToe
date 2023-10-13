@@ -86,7 +86,12 @@ func show_disabled_mess(ix):
 
 func on_confirmed():
 	print("on_confirmed()")
+	g.free_match = false
 	get_tree().change_scene_to_file("res://main_scene.tscn")
+func _on_free_match_button_pressed():
+	g.free_match = true
+	get_tree().change_scene_to_file("res://main_scene.tscn")
+	pass # Replace with function body.
 
 
 func _on_texture_button_12_button_down():
@@ -158,3 +163,5 @@ func _on_hard_button_toggled(button_pressed):
 		g.save_settings()
 	update_diff_mode()
 	pass # Replace with function body.
+
+
