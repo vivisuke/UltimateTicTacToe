@@ -58,6 +58,9 @@ func _ready():
 	#g.bd = Board.new()
 	#g.bd.m_rng = rng
 	#g.bd.set_eval_table(g_eval_table)
+	if !g.free_match:
+		$StartStopButton.hide()
+		$InitButton.hide()
 	init_board()
 	update_next_underline()
 	update_board_tilemaps()		# g.bd の状態から TileMap たちを設定
